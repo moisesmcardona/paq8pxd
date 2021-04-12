@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(paq8pxd)
 
+SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 find_package(ZLIB)
 find_package(BZip2)
 
@@ -43,5 +44,5 @@ if (UNIX)
         target_link_libraries(paq8pxd ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES})
     endif (MT)
 else ()
-    target_link_libraries(paq8pxd ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES})
+    target_link_libraries(paq8pxd ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES} -static)
 endif (UNIX)
